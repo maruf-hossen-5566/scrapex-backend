@@ -1,4 +1,5 @@
 from src.app.services.playwright.pw_client import PlaywrightClient
+import json
 
 
 def scrape_ebay(data: dict):
@@ -8,5 +9,8 @@ def scrape_ebay(data: dict):
     with PlaywrightClient() as client:
         page = client.new_page()
         page.goto(url)
-        print(page.title())
+        ld_json = page.locator("script[typs='application/ld+json']").all_inner_texts()
+        print("-" * 100)
+        print("eBay data: ", ld_json)
+        print("-" * 100)
         page.close()

@@ -36,4 +36,6 @@ class PlaywrightClient:
             locale="en-US",
             timezone_id="America/New_York",
         )
-        return self.context.new_page()
+        page = self.context.new_page()
+        page.set_default_timeout(60000)
+        return page
