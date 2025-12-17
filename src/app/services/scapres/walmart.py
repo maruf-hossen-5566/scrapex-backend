@@ -30,13 +30,14 @@ def scrape_walmart(d: dict):
     query: str = quote(d.get("search_query", ""))
 
     api_key = settings.BRIGHT_DATA_API
+    zone = settings.BRIGHT_DATA_ZONE
 
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     }
     data = {
-        "zone": "scrapex",
+        "zone": zone,
         "url": f"https://www.walmart.com/search?q={query}",
         "format": "raw",
     }
