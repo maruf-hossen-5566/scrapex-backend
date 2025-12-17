@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     PROXY_USERNAME: str
     PROXY_PASSWORD: str
     BRIGHT_DATA_API: str
+    BRIGHT_DATA_ZONE: str
 
     class Config:
         env_file = BASE_DIR / ".env"
