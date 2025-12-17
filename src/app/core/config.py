@@ -10,9 +10,10 @@ class Settings(BaseSettings):
     PROXY_SERVER: str
     PROXY_USERNAME: str
     PROXY_PASSWORD: str
+    BRIGHT_DATA_API: str
 
     class Config:
         env_file = BASE_DIR / ".env"
 
 
-settings = Settings()
+settings = Settings()  # type: ignore

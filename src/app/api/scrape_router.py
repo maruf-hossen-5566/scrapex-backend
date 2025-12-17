@@ -27,5 +27,8 @@ def start_scraping(data: ScrapInput, background_tasks: BackgroundTasks):
 @router.get("/{job_id}")
 def get_scraped_data(job_id: str):
     logger.info(f"JOB_ID: {job_id}")
-    job = jobs[job_id]
+    if jobs.get(job_id):
+        job = jobs[job_id]
+    else:
+        job = {"status": "failde", "error": "Failed to get data duo to server reload."}
     return {"detail": "Scrapping finished successfully.", "data": job}
